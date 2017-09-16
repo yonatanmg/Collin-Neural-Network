@@ -11,7 +11,7 @@
         //this function will create vectors for the hidden layers 
         //and, this function will create weight matrices as well
  
- //Inheritedd class: Forward Pass
+ //Inherited class: Forward Pass
     //this will assign each with the activation values and will get us the first output layer
     
       //Parameters:
