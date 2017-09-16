@@ -7,7 +7,7 @@
             
     //Functions:
     //Read-in() which will read all the required parameters from the keyboard
-    //CreateVectors() with no. of hidden layers and no. of neurons in each layer as a parameter
+    //CreateVectors() with no. of hidden layers and no. of neurons in each layer as parameters
         //this function will create vectors for the hidden layers 
         //and, this function will create weight matrices as well
  
