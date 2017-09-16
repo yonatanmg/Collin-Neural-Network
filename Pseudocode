@@ -1,0 +1,27 @@
+//Class Neuron_layer
+   //this will extract the data from the data file as input layer
+   
+     //Parameters:
+     //vectors of weights and biases
+     //hidden layers
+            
+    //Functions:
+    //Read-in() which will read all the required parameters from the keyboard
+    //CreateVectors() with no. of hidden layers and no. of neurons in each layer as a parameter
+        //this function will create vectors for the hidden layers 
+        //and, this function will create weight matrices as well
+ 
+ //Inheritedd class: Forward Pass
+    //this will assign each with the activation values and will get us the first output layer
+    
+      //Parameters:
+      //weighted inputs for each node
+      //activation values for each node
+      
+      //Functions:
+      //Calculate_Weighted_Input() inline function which will have method to calculate the weighted input
+      //Calculate_Activation_Value() inline function which will have method to calculate the Activation value
+      //Assign_Weighted_inputs() 
+      //Assign_Activation_Values()
+      
+//TBD
