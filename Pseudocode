@@ -1,17 +1,17 @@
+
 //Class Neuron_layer
    //this will extract the data from the data file as input layer
    
-     //Parameters:
+     //Parameters:     
      //vectors of weights and biases
-     //vectors of input and output layers
-     //hidden layers with the number of neurons in each layer
-            
-    //Methods:
-    //Read-in() which will read all the required parameters from the keyboard 
-         //this will also extract the required 4-pixel image from the data file 
-    //CreateVectors() with no. of hidden layers and no. of neurons in each layer as parameters
-        //this function will create vectors for the hidden layers 
-        //and, this function will create weight matrices as well
+     //vector of input layer
+                
+     //Methods:
+        //Read-in() which will read all the required parameters from the keyboard 
+            //this will also extract the required 4-pixel image from the data file 
+        //CreateVectors() with no. of hidden layers and no. of neurons in each layer as parameters
+            //this function will create vectors for the hidden layers 
+            //and, this function will create weight matrices as well
  
  //Inherited class from the neuron layer: Class Forward Pass
     //this will assign each with the activation values and will get us the first output layer
@@ -19,12 +19,13 @@
       //Parameters:
       //weighted inputs for each node
       //activation values for each node
+      //vector for output neurons
       
       //Methods:
-      //Calculate_Weighted_Input() inline function which will have method to calculate the weighted input
-      //Calculate_Activation_Value() inline function which will have method to calculate the Activation value
-      //Assign_Weighted_inputs() 
-      //Assign_Activation_Values()
+        //Calculate_Weighted_Input() inline function which will have method to calculate the weighted input
+        //Calculate_Activation_Value() inline function which will have method to calculate the Activation value
+        //Assign_Weighted_inputs() 
+        //Assign_Activation_Values()
       
 //Inherited class from the forward pass: Class Backpropagation
    //this will calculate the errors and change the weights and biases
