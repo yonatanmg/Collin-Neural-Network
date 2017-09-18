@@ -17,8 +17,8 @@
     //this will assign each with the activation values and will get us the first output layer
     
       //Parameters:
-      //weighted inputs for each node
-      //activation values for each node
+      //weighted inputs for each layer
+      //activation values for each layer
       //vector for output neurons
       
       //Methods:
