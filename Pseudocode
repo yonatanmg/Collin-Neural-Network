@@ -28,7 +28,7 @@
             //then populate the weights with random numbers, normal distribution, mean 0, standard deviation 1/Sqrt[m(l-1)]
         //Destructor to deallocate virtual memory
  
- //Inherited class from the neuron layer: Class Forward Pass
+ //Inherited class from Network: Class Forward Pass
     //this will assign each with the activation values and will get us the outputs for the whole network
     
       //Parameters:
@@ -50,19 +50,23 @@
                //Assign_Weighted_inputs()
                //Assign_Activation_Values()
       
-//Inherited class from the forward pass: Class Backpropagation
+//Inherited class from Forward Pass: Class Backpropagation
    //this will calculate the errors and change the weights and biases
-   //this will also store all the values of the gradients
+   //this will also store all the values of the cost gradients wrt biases and wrt weights
    
       //Parameters/Attributes:
       //Expected values from the training data file
       //nabla_b
       //nabla_w
+      //vector for errors (or maybe, we could use nabla_b instead of error vectors)
       
       //Methods/Behaviors:
       //Hadamarde Product (the one in dlib doesn't quite do what I expected)
       //Vectorized Cost Function
       //First derivative of Vectorized Cost Function (wrt activations)
+      //Calculate Error vectors (~ nabla_b) for output layer
+      //Calculate Error vectors (~ nabla_b) for inner nodes 
+      //Assign values to nabla_w vectors
       //Vectorized Activation Function
       //First derivative of Activation Function (wrt weighted inputs)
 
@@ -73,18 +77,24 @@
      //This comprises one epoch, so do this entire process as many times as the user requests
       
          //Parameters/Attributes:
-         //maybe something to keep track of which samples have been picked
+         //(none) (Could be the learning rate, epochs and the batch size (**if the forward and backprop are not publicly inherited))
       
          //Methods/Behaviors:
          //Stochatic Gradient Descent function
             //chooses n random samples from training data, feeds forward, props back once per n
             //keeps total nabla_w and nabla_b
-            //multiplies nabla_w and nabla_n by 1/n after all n samples are passed over
-            //somehow discards samples passed over, so they aren't loaded again
          //Update function for weights
+            //w += (eta/n)nabla_w
          //Update function for biases
-         //maybe some sort of progress display
-                                       ~~~STUFF WE THREW AROUND IN PREVIOUS MEETINGS~~~
-                                       
+            //b += (eta/n)nabla_b
+         //Progress output to console
+            //after every mini-batch, display (# of samples within Threshold)/(total samples tested)
+
+                           ^^^ May be able to combine this with Backpropagation class ^^^
+         
+                                       ~~~STUFF WE THREW AROUND IN PREVIOUS MEETINGS~~~  
 Save files, load files for network config
 threshold for classification
+   checks which Cost is lowest out of possible output categories
+   if Cost is below a number k, that classifier is chosen
+   otherwise, discard as ambiguous
