@@ -37,6 +37,9 @@
          //sizes will match [m2, m3, ..., ml, ..., mL]
       //activation vectors [a1, a2, ..., al, ..., aL]
          //sizes will match [m2, m3, ..., ml, ..., mL]
+      //weighted inputs for each layer
+      //activation values for each layer
+      //vector for output neurons
       
       //Methods:
         //Calculate_Weighted_Input() inline function which will have method to calculate the weighted input
