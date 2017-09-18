@@ -1,35 +1,87 @@
 
-//Class Neuron_layer
+//Class Network
    //this will extract the data from the data file as input layer
    
      //Parameters:     
-     //vectors of weights and biases
-     //vector of input layer
-                
+     //int array, number of neurons per layer (m1, m2, ..., ml, ..., mL)
+         //number of layers L can be derived from this input
+     //hyperparameters
+         //double, learning rate (eta)
+         //int, batch size (n)
+         //int, number of epochs (E)
+     //array of weight matrices [w2, w3, ..., wL]
+         //each of their sizes is given as ml rows by m(l-1) columns, 1 < l <= L
+         //for easier index arithmetic, consider including w1 in the array
+     //array of bias vectors [b2, b3, ..., bl, ..., bL]
+         //each element has ml rows and 1 column
+         //for easier indexing, monsider including b1
+         
+^^^number of neurons per layer can be discarded after setup, so we may not need it as an attribute, just a method variable^^^           
+     
      //Methods:
-        //Read-in() which will read all the required parameters from the keyboard 
-            //this will also extract the required 4-pixel image from the data file 
+        //Constructor that accepts an int array, three doubles, and a file for testing
+        //Read-in() which will read all the required parameters from the keyboard (neurons per layer, hyperparameters)
+            //this will also [be overloaded to?] extract the required 4-pixel image from the data file
         //CreateVectors() with no. of hidden layers and no. of neurons in each layer as parameters
-            //this function will create vectors for the hidden layers 
-            //and, this function will create weight matrices as well
+            //this function will create vectors for the hidden layers
+            //and, this function will create weight matrices as well, 
+            //then populate the weights with random numbers, normal distribution, mean 0, standard deviation 1/Sqrt[m(l-1)]
+        //Destructor to deallocate virtual memory
  
  //Inherited class from the neuron layer: Class Forward Pass
-    //this will assign each with the activation values and will get us the first output layer
+    //this will assign each with the activation values and will get us the outputs for the whole network
     
       //Parameters:
-      //weighted inputs for each node
-      //activation values for each node
-      //vector for output neurons
+      //Input file for testing data
+      //weighted input vectors [z2, z3, ..., zl, ..., zL]
+         //sizes will match [m2, m3, ..., ml, ..., mL]
+      //activation vectors [a1, a2, ..., al, ..., aL]
+         //sizes will match [m2, m3, ..., ml, ..., mL]
       
       //Methods:
         //Calculate_Weighted_Input() inline function which will have method to calculate the weighted input
         //Calculate_Activation_Value() inline function which will have method to calculate the Activation value
-        //Assign_Weighted_inputs() 
-        //Assign_Activation_Values()
+            //will necessarily include sigmoid activation function
+        //Consider including the latter methods in the two functions above, since our outputs will all be matrices, we can just
+            //assign the [zl] and [al] during calculation
+               //Assign_Weighted_inputs()
+               //Assign_Activation_Values()
       
 //Inherited class from the forward pass: Class Backpropagation
    //this will calculate the errors and change the weights and biases
    //this will also store all the values of the gradients
    
-      //Parameters:
-      //TBD
+      //Parameters/Attributes:
+      //Expected values from the training data file
+      //nabla_b
+      //nabla_w
+      
+      //Methods/Behaviors:
+      //Hadamarde Product (the one in dlib doesn't quite do what I expected)
+      //Vectorized Cost Function
+      //First derivative of Vectorized Cost Function (wrt activations)
+      //Vectorized Activation Function
+      //First derivative of Activation Function (wrt weighted inputs)
+
+//Inhereted class from Forward Pass and Backprop: Stochastic Gradient Descent
+     //SGD requires a forward pass and a backward pass per sample in each mini batch
+     //Will execute FP then BP, keeping an average of cost partials, then update the weights and biases
+     //until all samples in the training data are exhausted.
+     //This comprises one epoch, so do this entire process as many times as the user requests
+      
+         //Parameters/Attributes:
+         //maybe something to keep track of which samples have been picked
+      
+         //Methods/Behaviors:
+         //Stochatic Gradient Descent function
+            //chooses n random samples from training data, feeds forward, props back once per n
+            //keeps total nabla_w and nabla_b
+            //multiplies nabla_w and nabla_n by 1/n after all n samples are passed over
+            //somehow discards samples passed over, so they aren't loaded again
+         //Update function for weights
+         //Update function for biases
+         //maybe some sort of progress display
+                                       ~~~STUFF WE THREW AROUND IN PREVIOUS MEETINGS~~~
+                                       
+Save files, load files for network config
+threshold for classification
