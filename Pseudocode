@@ -58,11 +58,15 @@
       //Expected values from the training data file
       //nabla_b
       //nabla_w
+      //vector for errors (or maybe, we could use nabla_b instead of error vectors)
       
       //Methods/Behaviors:
       //Hadamarde Product (the one in dlib doesn't quite do what I expected)
       //Vectorized Cost Function
       //First derivative of Vectorized Cost Function (wrt activations)
+      //Calculate Error vectors (~ nabla_b) for output layer
+      //Calculate Error vectors (~ nabla_b) for inner nodes 
+      //Assign values to nabla_w vectors
       //Vectorized Activation Function
       //First derivative of Activation Function (wrt weighted inputs)
 
@@ -73,16 +77,16 @@
      //This comprises one epoch, so do this entire process as many times as the user requests
       
          //Parameters/Attributes:
-         //(none)
+         //(none) (Could be the learning rate, epochs and the batch size (**if the forward and backprop are not publicly inherited))
       
          //Methods/Behaviors:
          //Stochatic Gradient Descent function
             //chooses n random samples from training data, feeds forward, props back once per n
             //keeps total nabla_w and nabla_b
          //Update function for weights
-            //w += (1/n)nabla_w
+            //w += (eta/n)nabla_w
          //Update function for biases
-            //b += (1/n)nabla_b
+            //b += (eta/n)nabla_b
          //Progress output to console
             //after every mini-batch, display (# of samples within Threshold)/(total samples tested)
 
