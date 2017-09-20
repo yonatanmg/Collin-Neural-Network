@@ -58,8 +58,7 @@
       //Expected values from the training data file
       //nabla_b
       //nabla_w
-      //vector for errors (or maybe, we could use nabla_b instead of error vectors)
-      
+            
       //Methods/Behaviors:
       //Hadamarde Product (the one in dlib doesn't quite do what I expected)
       //Vectorized Cost Function
